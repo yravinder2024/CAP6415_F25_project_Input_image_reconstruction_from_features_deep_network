@@ -17,6 +17,7 @@ Dataset Summary:
 ImageNet: Large-scale object classification dataset, 1.2M images, 1,000 classes.
 CIFAR-10: Small-scale, 60K images, used for prototyping.
 CelebA-HQ / FFHQ: High-resolution face datasets used for GAN/Diffusion model inversion tests.
+
 Literature Review
 1. Mahendran & Vedaldi (2015) - Understanding Deep Image Representations by Inverting Them  
 https://arxiv.org/abs/1412.0035
