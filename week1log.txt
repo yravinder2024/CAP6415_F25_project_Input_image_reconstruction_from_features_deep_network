@@ -40,7 +40,6 @@ https://arxiv.org/abs/2303.13495
 https://arxiv.org/abs/2307.12493
 11. Chen et al. (2025) - Image Inversion: A Survey from GANs to Diffusion and Beyond  
  https://arxiv.org/abs/2502.11974
-
 12. Kim et al. (2024) - Diffusion-Driven GAN Inversion for Multi-Modal Face Image Generation  
 https://www.emergentmind.com/papers/2405.04356
 13. MDPI (2024) - Inv-ReVersion: Enhanced Relation Inversion Based on Text-to-Image Diffusion Models  
