@@ -1,0 +1,52 @@
+CAP 6415 COMPUTER VISION 
+COURSE PROJECT
+INTEL IMAGE RECONSTRUCTION FROM FEATURES (DEEP NETWORK)
+MANISH LNU (Z23793599)
+YASH RAVINDER (Z23813225)
+
+Introduction
+This project focuses on reconstructing input images from deep network features (feature inversion) using modern generative models such as Generative Adversarial Networks (GANs) and Diffusion Models. The main goal is to understand and visualize what information deep networks (e.g., ResNet-101) retain at various representation levels. By performing feature inversion, we find the difference between high-level deep features and human-understandable image space. 
+We also explore hybrid approaches that combine the structured latent space of GANs with the generative flexibility of diffusion models. The final objective is to reconstruct images with high fidelity while preserving consistency. Applications include model interpretability, data privacy evaluation, and understanding the representational capacity of deep networks.
+
+Dataset Description
+For this project, we use the ImageNet dataset (ILSVRC 2012) as the primary source of images. ImageNet contains over 1.2 million training images and 50,000 validation images across 1,000 object categories.
+We also consider using CIFAR-10 (60,000 32×32 color images in 10 classes) for rapid experimentation and preliminary evaluations.
+For diffusion-based inversion fine-tuning and GAN inversion testing, we may sample subsets of CelebA-HQ and FFHQ datasets, which contain high-quality human face images commonly used for generative modeling research.
+
+Dataset Summary:
+ImageNet: Large-scale object classification dataset, 1.2M images, 1,000 classes.
+CIFAR-10: Small-scale, 60K images, used for prototyping.
+CelebA-HQ / FFHQ: High-resolution face datasets used for GAN/Diffusion model inversion tests.
+Literature Review
+1. Mahendran & Vedaldi (2015) - Understanding Deep Image Representations by Inverting Them  
+https://arxiv.org/abs/1412.0035
+2. Dosovitskiy & Brox (2015/2016) - Inverting Visual Representations with Convolutional Networks  
+https://arxiv.org/abs/1506.02753
+3. Nash et al. (2019) - Inverting Supervised Representations with Autoregressive Neural Density Models  
+https://proceedings.mlr.press/v89/nash19a.html
+4. Roich et al. (2022) - Near Perfect GAN Inversion  
+https://authors.library.caltech.edu/records/vsthy-pkw41
+5. Lin et al. (2022) - 3D GAN Inversion for Controllable Portrait Image Animation  
+https://www.computationalimaging.org/publications/3dganinversion/
+6. Xia et al. (2023) - GAN Inversion: A Survey  
+https://doi.org/10.1109/TPAMI.2022.3181070
+7. Zhang et al. (2023) - Inversion-Based Style Transfer with Diffusion Models  
+https://openaccess.thecvf.com/content/CVPR2023/html/Zhang_Inversion-Based_Style_Transfer_With_Diffusion_Models_CVPR_2023_paper.html
+8. Miyake et al. (2023) - Negative-prompt Inversion for Editing with Text-guided Diffusion Models  
+https://arxiv.org/abs/2305.16807
+9. Huang et al. (2023) - ReVersion: Diffusion-Based Relation Inversion from Images  
+https://arxiv.org/abs/2303.13495
+10. Lu et al. (2023) - TF-ICON: Diffusion-Based Training-Free Cross-Domain Image Composition  
+https://arxiv.org/abs/2307.12493
+11. Chen et al. (2025) - Image Inversion: A Survey from GANs to Diffusion and Beyond  
+ https://arxiv.org/abs/2502.11974
+
+12. Kim et al. (2024) - Diffusion-Driven GAN Inversion for Multi-Modal Face Image Generation  
+https://www.emergentmind.com/papers/2405.04356
+13. MDPI (2024) - Inv-ReVersion: Enhanced Relation Inversion Based on Text-to-Image Diffusion Models  
+https://www.mdpi.com/2076-3417/14/8/3338
+14. Dong et al. (2023) - Prompt Tuning Inversion for Text-driven Image Editing Using Diffusion Models  
+  https://openaccess.thecvf.com/content/ICCV2023/html/Dong_Prompt_Tuning_Inversion_for_Text-driven_Image_Editing_Using_Diffusion_Models_ICCV_2023_paper.html
+15. Kansy et al. (2023) - Controllable Inversion of Black-Box Face Recognition Models via Diffusion  
+    https://openaccess.thecvf.com/content/ICCVW2023/html/Kansy_Controllable_Inversion_of_Black-Box_Face_Recognition_Models_via_Diffusion_ICCVW_2023_paper.html
+
