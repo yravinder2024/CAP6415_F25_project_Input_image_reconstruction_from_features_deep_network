@@ -1,0 +1,37 @@
+WEEK 2 LOG
+
+We implemented the feature extraction pipeline for cifar-10 from a pretrained ResNet-101 model. This step is essential for preparing the dataset of feature maps and original images 
+that will be used later for training the GAN-based and diffusion-based reconstruction models. 
+
+-> Created Dataset Loader for Raw Images
+  Loaded raw images via a standard PyTorch DataLoader.
+  Applied necessary preprocessing transformations:
+  1.	Resize
+  2.	Normalize
+  3.	Batch loading for efficiency
+
+-> Implemented Forward Hooks for Feature Extraction
+  Added forward hooks to three key layers in ResNet-101:
+  1.	layer1 – Top layer
+  2.	layer3 – middle layer
+  3.	avgpool – deep layer
+  Stored each layer's output in a shared dictionary (features = {}) during forward passes.
+
+-> Ran Forward Pass and Collected and Saved Feature Maps and Original Images
+  For each input batch:
+  1.	Passed the images through the model.
+  2.	Extracted feature maps for all three layers via hooks.
+  3.	Confirmed the output shapes:
+      layer3 → (1024, 14, 14)
+      layer1 → (256, 56, 56)
+      avgpool → (2048, 1, 1)
+
+-> Saved feature maps as .pt tensors:
+  1.	/image_reconstruction_project/features/layer1/
+  2.	/image_reconstruction_project/features/layer3/
+  3.	/image_reconstruction_project/features/avgpool/
+  Saved corresponding original images as PNGs in: /image_reconstruction_project/images/
+  Implemented a save limit (save_limit = 1000) for controlled extraction.
+  Successfully extracted and saved 1000 complete samples.
+
+-> Week 2 established the entire feature extraction & dataset generation pipeline, which will now be used for: Training the GAN-based generator which will be done in Week 3 
