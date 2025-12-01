@@ -1,0 +1,53 @@
+Week 3 Log – Building a Custom GAN System for Image Deconstruction & Reconstruction
+
+This week, we shifted from using extracted ResNet-101 features (Week 2) to building our own encoder–decoder GAN that can both deconstruct input images into feature-level representations and reconstruct them back to pixel space. This allows us to compare GAN-based inversion.
+
+1. Implemented Custom Encoder (Deconstruction Network)
+  Built a convolutional encoder from scratch using PyTorch.
+  Input: CIFAR-10 images (32×32×3).
+  Architecture included:
+    4 convolutional downsampling blocks
+    BatchNorm + LeakyReLU
+    Final compressed feature tensor f ∈ ℝ^(C×H×W)
+  Encoder output serves as the internal representation (latent features).
+
+2. Implemented Custom Generator/Decoder (Reconstruction Network)
+  Designed from scratch with:
+    ConvTranspose2d upsampling blocks
+    Skip connections for stability
+    Final tanh layer to produce reconstructed image
+  Trained to invert the encoder’s feature maps back into a full image.
+
+3. Implemented GAN Framework
+  Generator = custom decoder
+  Discriminator = CNN classifier for real vs reconstructed images
+  Loss functions:
+    Adversarial loss (BCE)
+    L1 pixel reconstruction loss
+    Feature matching loss (optional)
+
+4. End-to-End Deconstruction → Reconstruction Pipeline
+  For each image:
+   Encoder produces latent feature map
+   Generator reconstructs the image
+   Discriminator evaluates real/fake
+   Losses backpropagate through both encoder and generator
+
+5. Training Pipeline Built From Scratch
+  Custom training loop with alternating updates:
+    Update discriminator (real + reconstructed images)
+    Update encoder & generator jointly
+  Stabilized training by:
+    Using reduced discriminator capacity
+    Adding gradient penalty
+    Lower learning rate for generator
+
+6. Results
+  GAN quickly captures coarse structure and colors.
+  Reconstructions improved over epochs.
+  Some blurring and mode collapse observed, typical for GAN training.
+
+7. Outcome
+  Successfully created **our own GAN-based inversion model**:
+  Image → encoder → feature representation → generator → reconstructed image
+  The final model serves as baseline comparison for Week 4 diffusion inversion.
