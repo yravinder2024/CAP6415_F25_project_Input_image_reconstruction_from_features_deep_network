@@ -1,0 +1,48 @@
+Week 4 Log – Building a Custom Diffusion Model for Image Deconstruction & Reconstruction
+
+We built a complete diffusion-based encoder–decoder system to compare with the GAN model developed in Week 3. Unlike Week 3’s adversarial approach, diffusion provides a probabilistic and more stable reconstruction framework.
+
+1. Built Custom Diffusion Encoder (Deconstruction)
+  Instead of using a CNN encoder, we use the forward diffusion process to deconstruct an image.
+  For an input image x₀, we progressively add noise: xₜ = √ᾱₜ · x₀ + √(1 - ᾱₜ) · ε
+  Implemented:
+    Linear and cosine β schedules
+    Ability to sample any timestep t
+  The noisy image xₜ serves as the deconstructed representation.
+
+2. Built Custom UNet Denoiser (Reconstruction)
+  Implemented full UNet from scratch with:
+    Downsampling and upsampling blocks
+    Residual connections
+    Optional attention module
+    Time embedding for diffusion timestep conditioning
+  Input: noisy image at timestep t
+  Output: predicted noise εₜ
+
+3. Reverse Diffusion Reconstruction
+    Reconstructed image obtained by: xₜ₋₁ = 1/√αₜ (xₜ - βₜ/√(1 - ᾱₜ) · ε̂ₜ)
+    Implemented iterative sampling loop from t = T down to t = 0.
+
+4. Training the Diffusion Model
+  Loss function: L = ||ε - ε̂||² (denoising objective)
+  Training pipeline includes:
+    Random timestep sampling
+    Noise sampling
+    UNet backpropagation
+
+5. Comparison With GAN Results
+  Diffusion reconstructions show:
+    Sharper edges
+    Better texture
+    Higher color fidelity
+    No mode collapse
+  More stable during training but significantly slower.
+
+6. Challenges
+  Training time significantly higher than GAN.
+  UNet must be carefully balanced to avoid overfitting.
+  High GPU memory usage for long diffusion chains.
+
+7. Outcome
+  Successfully created **our own diffusion-based inversion model: image → forward diffusion → noisy representation → UNet reverse diffusion → reconstructed image
+  Diffusion produces higher-quality reconstructions than the custom GAN model.
