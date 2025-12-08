@@ -86,6 +86,6 @@ avg loss = 0.92
 
 To evaluate the performance of the GAN and Diffusion architecture, we compare their training time and reconstruction quality using PSNR and SSIM as metrics.The GAN model completed training significantly faster, taking only 35 minutes, whereas Diffusion model took a longer time, taking 2 hours.
 
-Despite its higher computational cost, Diffusion model delivered better output quality. The GAN achieved an average PSNR of 20 dB and SSIM of 0.68, indicating moderate reconstruction. Diffusion model attained a higher PSNR of 27 dB and SSIM of 0.83. When we look at hte images we can see Gan produces blurry images and diffusion model give sharp edges almost creating the original image.
+Despite its higher computational cost, Diffusion model delivered better output quality. The GAN achieved an average PSNR of 20 dB and SSIM of 0.68, indicating moderate reconstruction. Diffusion model attained a higher PSNR of 27 dB and SSIM of 0.83. When we look at the images we can see Gan produces blurry images and diffusion model give sharp edges almost creating the original image.
 
 GANs are faster and more efficient, while Diffusion models provide higher-quality reconstructions at the cost of longer runtimes.
