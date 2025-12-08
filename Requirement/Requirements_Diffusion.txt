@@ -1,5 +1,5 @@
 # ============================================================================
-# Requirements for Image Reconstruction with Diffusion Models
+# Requirements for Image Reconstruction For GAN Model and Diffusion Model
 # ============================================================================
 # Tested and working with these exact versions
 
@@ -7,10 +7,6 @@
 torch==2.9.0
 torchvision==0.24.0
 numpy==2.0.2
-
-# Diffusion Models
-diffusers==0.35.2
-transformers>=4.30.0
 
 # Image Processing
 Pillow==11.3.0
@@ -21,16 +17,19 @@ opencv-python>=4.8.0
 matplotlib>=3.7.0
 tqdm>=4.65.0
 
-# Hugging Face Hub (for model downloads)
+# Hugging Face Hub
 huggingface-hub>=0.16.0
 
-# Optional but recommended
 accelerate>=0.20.0
 safetensors>=0.3.0
 
 # For Colab/Jupyter
 ipython>=8.12.0
 ipywidgets>=8.0.0
+
+# Diffusion Models (only difference)
+diffusers==0.35.2
+transformers>=4.30.0
 
 # ============================================================================
 # Installation Notes:
@@ -46,3 +45,4 @@ ipywidgets>=8.0.0
 # For Google Colab (already has PyTorch):
 #   pip install diffusers==0.35.2 scikit-image==0.25.2
 # ============================================================================
+
