@@ -14,6 +14,8 @@ ResNet - 101 is used on the preprocessed data and we use layer3 features to pass
 
 GAN Architecture
 
+Code Link : https://colab.research.google.com/drive/1ID1e71JfYLPWVuf8bHbUh4PImv-ihHH9?usp=sharing
+
 GAN architecture is created which contain two neural network named generator and discriminator. Training begins with generator taking random noise and produce fake sample. Discriminator recieves both real data and generators fake sample and learn to differentiate them as real or fake by minimizing a binary classification loss. then generator is updated to fool the discriminator by vreating fake samples that it can be classified as real which it learns by maximizing the discriminators error. this loop runs for every epoch. both neural network learns and become better every iteration.
 
 
@@ -51,6 +53,8 @@ avg discriminator loss = 1.25
 
 
 Diffusion Architecture
+
+Code Link : https://colab.research.google.com/drive/1z2zOHQZPFsUEeFoWqjRHGFvROUaP_wjV?usp=sharing
 
 Diffusion architecture is then created which defines a forward process which add gaussian moise to real data in every timestep until the data becomes nearly pure noise. the model then learns reverse process which predicts how to remove the noise step by step. Each step is denoising until we obtain a realistic image which produce output which is used to compare with the original image.
 Training loop was done for 50 Epochs where we calculate loss for training and validation and PSNR and SSIM for every image.
